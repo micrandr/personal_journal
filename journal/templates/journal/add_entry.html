@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Add Entry</title>
-</head>
-<body>
-  <h1>New Journal Entry</h1>
-  <form method="post">
+{% extends 'base.html' %}
+{% block title %}New Entry - My Journal{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl font-bold mb-4">Add New Journal Entry</h1>
+
+  <form method="post" class="bg-white shadow-md rounded p-4 space-y-4">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save</button>
   </form>
-  <a href="/">Back to home</a>
-</body>
-</html>
+
+  <a href="/" class="mt-4 inline-block text-blue-600 hover:text-blue-800">← Back to Home</a>
+{% endblock %}

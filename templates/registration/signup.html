@@ -1,43 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Signup</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-  <div class="bg-white shadow-md rounded-lg p-6 w-80">
-    <h1 class="text-2xl font-bold text-center mb-4">Sign Up</h1>
+{% extends 'base.html' %}
+{% block title %}Sign Up - My Journal{% endblock %}
 
-    {% if form.errors %}
-      <p class="text-red-500 text-sm mb-3">Please fix the errors below.</p>
-    {% endif %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white shadow-md rounded p-6">
+  <h1 class="text-2xl font-bold mb-4 text-center">Sign Up</h1>
 
-    <form method="post">
-      {% csrf_token %}
-      <div class="mb-3">
-        {{ form.username.label_tag }}
-        {{ form.username }}
-      </div>
-      <div class="mb-3">
-        {{ form.password1.label_tag }}
-        {{ form.password1 }}
-      </div>
-      <div class="mb-3">
-        {{ form.password2.label_tag }}
-        {{ form.password2 }}
-      </div>
-      <button type="submit" class="bg-green-600 text-white w-full py-2 rounded-md">
-        Sign Up
-      </button>
-    </form>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700">Sign Up</button>
+  </form>
 
-    <p class="text-center text-sm mt-4">
-      <a href="/accounts/login/">Already have an account? Login</a>
-    </p>
-    <p class="text-center text-sm mt-2">
-      <a href="/">← Back to Home</a>
-    </p>
-  </div>
-</body>
-</html>
+  <p class="text-center mt-4">
+    <a href="/accounts/login/" class="text-blue-600 hover:text-blue-800">Already have an account? Login</a>
+  </p>
+</div>
+{% endblock %}
