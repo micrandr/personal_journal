@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Models journal entry.
 class JournalEntry(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()

@@ -1,6 +1,7 @@
 from django import forms
 from .models import JournalEntry
 
+# JournalEntryForm here with custom widgets for title, contents for tailwinds displays
 class JournalEntryForm(forms.ModelForm):
     class Meta:
         model = JournalEntry
